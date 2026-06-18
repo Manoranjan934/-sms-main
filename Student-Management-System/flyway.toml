@@ -1,0 +1,31 @@
+databaseType = "MySql"
+id = "d9950c18-c875-4a87-a2a6-b4d8cf71f217"
+name = "Student-Management-System"
+
+[flyway]
+callbackLocations = [ "filesystem:callbacks" ]
+locations = [ "filesystem:migrations" ]
+mixed = true
+outOfOrder = true
+schemaModelLocation = "schema-model"
+validateMigrationNaming = true
+
+[flywayDesktop]
+enableMigrations = true
+showDeploymentDecision = true
+developmentEnvironment = "development"
+shadowEnvironment = "shadow"
+
+  [flywayDesktop.generate]
+  undoScripts = false
+
+[redgateCompare]
+filterFile = "filter.rgf"
+
+[redgateCompare.mysql.options.ignores]
+ignoreNewlinesInTextObjects = "off"
+
+[environments.target1]
+url = "jdbc:mysql://localhost:3306"
+user = "root"
+schemas = [ "sms_flyway" ]
